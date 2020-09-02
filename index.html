@@ -3,82 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping Cart</title>
-    <!--GOOGLE FONTS-->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <!-- FONT AWESOME -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <title>Document</title>
+    <!--BOOTSTRAP-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <!--Fontawesome-->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
     <!--CSS-->
-    <link rel="stylesheet" href="style.css">
-    <!--MOBILE-->
-    <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 320px) and (max-device-width: 767px) " href="mobile.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
   <body>
-    <div class="container">
-
+    <div class="global-container">
       <header>
         <h1>Fill up your cart</h1>
-        <div class="cart-icon"><button id='cart'><i class="fas fa-shopping-cart"></i></button></div>
+        <button id="cart" class="cart">
+          <i class="fas fa-shopping-cart"></i>
+        </button>
       </header>
-      <div class="sidebar-container">
-          <div class="sidebar">
-              <div class="content">
-                <button id='close-sidebar'><i class="fas fa-times"></i></button>
-                <h1>Your Items</h1>
-                <div class="sidebar-items">
-                  <ul class="sidebar-list">
-                    <!-- <li class="sidebar-list-item">
-                      <div class="cart-item">
-                        <div class="cart-item-header"></div>
-                        <div class="cart-item-body">
-                          <p>Item Title</p>
-                          <p>Item Description</p>
-                          <button class='remove-cart'><i class="fas fa-trash"></i></button>
-                        </div>
-                      </div>
-                    </li> -->
-                  </ul>
-                </div>
-                <h2 class='total-price'>Total Price: $55.55</h2>
-                <button class='check-out'>Check Out</i></button>
-              </div>
-            </div>
-        </div>
+      <div class="side-cart">
+        <button class="close-cart"><i class="fas fa-times-circle"></i></button>
+        <h1>Your Items</h1>
+        <ul class="side-cart-items"></ul>
+        <h2>Total Price:</h2>
+      </div>
       <div class="items-container">
-        <div class="items-wrapper">
-          <div class="item1 item">
-            <div class="item-header"></div>
-            <div class="item-body">
-              <p>Item Title</p>
-              <p>Item Description</p>
-              <button class='add-cart'>Add to cart</button>
-            </div>
-          </div>
-          <div class="item2 item">
-            <div class="item-header"></div>
-              <div class="item-body">
-                 <p>Item Title</p>
-                <p>Item Description</p>
-                <button class='add-cart'>Add to cart</button>
-            </div>
-          </div>
-          <div class="item3 item">
-            <div class="item-header"></div>
-              <div class="item-body">
-                <p>Item Title</p>
-                <p>Item Description</p>
-                <button class='add-cart'>Add to cart</button>
-            </div>
-          </div>
-          <div class="item4 item">
-            <div class="item-header"></div>
-            <div class="item-body">
-              <p>Item Title</p>
-              <p>Item Description</p>
-              <button class='add-cart'>Add to cart</button>
-            </div>
+        <div class="item">
+          <div class="item-head"></div>
+          <div class="item-body">
+            <p class="title">Item1</p>
+            <p class="price">$25.55</p>
+            <button class="add-to-cart">Add to cart</button>
           </div>
         </div>
-
+        <div class="item">
+          <div class="item-head"></div>
+          <div class="item-body">
+            <p class="title">Item2</p>
+            <p class="price">$35.55</p>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-head"></div>
+          <div class="item-body">
+            <p class="title">Item3</p>
+            <p class="price">$5.55</p>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-head"></div>
+          <div class="item-body">
+            <p class="title">Item4</p>
+            <p class="price">$15.55</p>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
       </div>
     </div>
     <script src="app.js"></script>

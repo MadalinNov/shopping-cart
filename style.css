@@ -1,263 +1,128 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-li {
-  list-style: none;
-}
 body {
+  width: 100%;
   height: 100vh;
-  widows: 100%;
-  font-family: "Poppins", sans-serif;
   overflow-x: hidden;
 }
-.container {
-  height: 100%;
+ul {
+  list-style: none;
+}
+.global-container {
   width: 100%;
+  height: 100%;
+  background-image: linear-gradient(120deg, #1b262c, #bbe1fa);
   position: relative;
-  background-image: linear-gradient(to right, #f1f3f8, #8d93ab);
-  color: #8d93ab;
 }
 header {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
+  height: 7%;
   width: 80%;
-  height: 60px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
+  padding: 0 10px;
+  color: lightgray;
 }
-header h1 {
-  border-top: 2px solid white;
-  text-shadow: 0 5px 15px rgba(148, 168, 207, 0.8);
-}
-header button {
-  font-size: 1.2rem;
-  background-color: #8d93ab;
-  color: #f6f6f6;
-  border: 1px solid white;
-  border-radius: 15%;
-  height: 40px;
-  width: 40px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+/*Cart*/
+header .cart,
+.side-cart button {
+  width: 50px;
+  font-size: 1.5rem;
+  border: none;
   outline: none;
-  z-index: 1000;
+  background-color: inherit;
+  color: white;
+  transition: all 0.3s ease;
 }
-header button:hover {
-  background-color: #f6f6f6;
-  color: #8d93ab;
+header button:hover,
+.side-cart button:hover {
+  color: #1b262c;
 }
 header button:active {
-  transform: scale(0.92);
+  transform: scale(0.95);
 }
-.sidebar-container {
+.cart-icon-active {
+  transform: scale(1.5);
+}
+header .cart-item-in {
+  color: lightpink;
+}
+.side-cart {
+  position: absolute;
+  width: 40%;
   height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.sidebar {
-  height: 100%;
-  width: 30%;
-  background-color: #d6e0f0;
-  z-index: 10;
-  transform: translate(600px);
+  background-color: green;
+  right: 0;
+  top: 0;
   transition: all 0.3s ease;
-}
-.sidebar .content h1 {
-  text-align: center;
-  padding-top: 50px;
-}
-.sidebar .content #close-sidebar,
-.check-out {
-  float: right;
-  font-size: 1.2rem;
-  background-color: #8d93ab;
-  color: #f6f6f6;
-  border: 1px solid white;
-  border-radius: 15%;
-  height: 40px;
-  width: 40px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  outline: none;
+  transform: translate(1000px);
   z-index: 1000;
 }
-.sidebar .content #close-sidebar:hover,
-.remove-cart:hover,
-.check-out:hover {
-  background-color: #f6f6f6;
-  color: #8d93ab;
-}
-.sidebar-active {
+.cart-active {
   transform: translate(0);
 }
-.item-in-cart {
-  color: green;
-}
-.cart-active {
-  animation: cartAnimation 0.2s linear forwards;
-}
-@keyframes cartAnimation {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.sidebar-items {
-  width: 80%;
-  height: 80%;
+.side-cart h1 {
   position: absolute;
-  top: 50%;
-  left: 20%;
-  transform: translate(-20%, -50%);
-}
-.sidebar-list {
-  display: flex;
-  flex-direction: column;
-}
-.sidebar .item {
-  width: 90%;
-  height: 200px;
-  position: absolute;
+  top: 0;
   left: 50%;
-  transform: translate(-50%);
-  background-color: blue;
-  display: flex;
-}
-.sidebar .item-header {
-  width: 50%;
-  height: 100%;
-  background-color: black;
-}
-.sidebar .item-body {
+  transform: translate(-50%, 0);
   color: white;
-  width: 50%;
-  height: 100%;
-  background-color: gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
 }
-.sidebar .add-cart {
-  font-size: 1rem;
-  background-color: #8d93ab;
-  color: #f6f6f6;
-  border: 1px solid white;
-  border-radius: 15%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  outline: none;
-  margin-left: 20px;
-}
-.total-price {
+.side-cart h2 {
+  text-align: center;
   position: absolute;
   top: 90%;
   left: 50%;
-  transform: translate(-50%, -90%);
 }
-.check-out {
-  position: absolute;
-  top: 95%;
-  left: 50%;
-  transform: translate(-50%, -95%);
+/*sidebar items*/
+.side-cart-items .item {
+  width: 80%;
+  height: 200px;
+  display: flex;
+}
+.side-cart-items .item-head {
+  height: 100%;
   width: 50%;
 }
+.side-cart-items .item-body {
+  height: 100%;
+  width: 50%;
+  background-color: red;
+}
+/*Items*/
 .items-container {
   width: 80%;
-  height: 90%;
-  background-color: #8d93ab;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-}
-.items-wrapper {
+  height: 80%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 95%;
-  height: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.item {
-  width: 300px;
-  height: 250px;
-}
-.item-header {
-  width: 100%;
-  height: 200px;
-  background-color: black;
-}
-.item-body {
-  width: 100%;
-  height: 200px;
-  background-color: gray;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 15rem);
 }
-.item-body p {
-  color: white;
-}
-.add-cart {
-  width: 80%;
-  height: 30px;
-  background-color: inherit;
-  margin-top: 60px;
-  border: 1px solid white;
-  cursor: pointer;
-  outline: none;
-  color: white;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
-}
-.add-cart:hover {
-  color: inherit;
+.item {
+  margin: 10px;
+  width: 200px;
+  height: 250px;
   background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
-/*MEDIA QUERIES*/
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  header h1 {
-    font-size: 1.2rem;
-  }
-  .sidebar {
-    width: 50%;
-  }
-  .items-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  .item {
-    display: flex;
-    flex-direction: row;
-    width: 400px;
-    height: 200px;
-  }
+.item-head {
+  width: 100%;
+  height: 50%;
+  background-color: gray;
 }
-@media screen and (max-width: 1220px) {
-  .items-container {
-    width: 100%;
-  }
+.item-body {
+  text-align: center;
 }
-/* @media screen and (max-width: 900px) {
-  .item {
-    width: 200px;
-    height: 200px;
-  }
-} */
+.item-body button {
+  width: 90%;
+  border: none;
+  outline: none;
+}

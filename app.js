@@ -1,36 +1,47 @@
-//SELECTORS
+//Selectors
 const cart = document.getElementById("cart");
-const cartClose = document.getElementById("close-sidebar");
-const addToCart = document.querySelectorAll(".add-cart");
-//EVENT LISTENERS
-
-//CART TOGGLER
+const closeCart = document.querySelector(".close-cart");
+const sideCart = document.querySelector(".side-cart");
+const addToCart = document.querySelectorAll(".add-to-cart");
+const itemsList = document.querySelector(".side-cart-items");
+//Event Listeners
 cart.addEventListener("click", function () {
-  const cartSidebar = document.querySelector(".sidebar");
-  cartSidebar.classList.add("sidebar-active");
+  sideCart.classList.add("cart-active");
 });
-cartClose.addEventListener("click", function () {
-  const cartSidebar = document.querySelector(".sidebar");
-  cartSidebar.classList.remove("sidebar-active");
+closeCart.addEventListener("click", function () {
+  sideCart.classList.remove("cart-active");
 });
-//ADD TO CART BUTTON FUNCTIONALITY
 addToCart.forEach(function (button) {
   button.addEventListener("click", function () {
-    cart.classList.add("item-in-cart");
-    cart.classList.add("cart-active");
-    setTimeout(removeActive, 100);
-    const buttonParrent = button.parentElement;
-    const item = buttonParrent.parentElement;
-    const cloneItem = item.cloneNode(true);
+    //Cart animation
+    cart.classList.add("cart-icon-active");
+    cart.classList.add("cart-item-in");
+    setTimeout(removeClass, 100);
+
+    //item clone and add to cart
     const newListItem = document.createElement("li");
-    document.querySelector(".sidebar-list").appendChild(newListItem);
-    newListItem.appendChild(cloneItem);
+    itemsList.appendChild(newListItem);
+    const buttonParent = button.parentElement;
+    const item = buttonParent.parentElement;
+    const sideBarItem = item.cloneNode(true);
+    newListItem.appendChild(sideBarItem);
+    //total price update
+    totalPrice(button);
   });
 });
-//FUNCTIONS
-//REMOVE ACTIVE CLASS FROM CONAINTER
-function removeActive() {
-  if (cart.classList.contains("cart-active")) {
-    cart.classList.remove("cart-active");
+//functions
+//remove cart animation
+function removeClass() {
+  if (cart.classList.contains("cart-icon-active")) {
+    cart.classList.remove("cart-icon-active");
   }
+}
+
+//total price calculator
+function totalPrice(input) {
+  const price = input.previousSibling.previousElementSibling.innerHTML.slice(1);
+  let priceNumber = parseFloat(price);
+  const cartPrice = document.querySelector("h2");
+  let cartTotalPrice = priceNumber;
+  let previousPrice = 0;
 }

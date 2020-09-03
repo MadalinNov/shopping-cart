@@ -66,6 +66,9 @@ header .cart-item-in {
   transform: translate(0);
 }
 .side-cart h1 {
+  pointer-events: none;
+  text-align: center;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 50%;

@@ -28,17 +28,19 @@ addToCart.forEach(function (button) {
     const item = buttonParent.parentElement;
     const sideBarItem = item.cloneNode(true);
     newListItem.appendChild(sideBarItem);
-    //remove cart styling if cart is empty
-    if (itemsList.hasChildNodes() === false) {
-      cart.classList.remove("cart-item-in");
-    }
-    //Remove items from cart (remove li from ul)
+    console.log(itemsList);
+    //Remove items from cart (remove li from ul) && remove cart styling if cart is empty
     const sideBarButton = sideBarItem.querySelectorAll("button");
     sideBarButton.forEach(function (barButton) {
       barButton.textContent = "Remove";
+      sideCart.querySelector("h1").textContent = "Your Items";
       barButton.addEventListener("click", function () {
         const deleteItem = barButton.parentNode.parentNode;
         deleteItem.parentNode.parentNode.removeChild(deleteItem.parentNode);
+        if (!itemsList.hasChildNodes()) {
+          cart.classList.remove("cart-item-in");
+          sideCart.querySelector("h1").textContent = "Your cart it empty";
+        }
       });
     });
     //total price update

@@ -80,8 +80,8 @@ header .cart-item-in {
 }
 /*sidebar items*/
 .side-cart-items .item {
-  width: 80%;
-  height: 200px;
+  width: 60%;
+  height: 150px;
   display: flex;
 }
 .side-cart-items .item-head {

@@ -96,6 +96,7 @@ header .cart-item-in {
   width: 50%;
   background-color: red;
 }
+
 /*Items*/
 .items-container {
   width: 80%;
@@ -124,7 +125,8 @@ header .cart-item-in {
 .item-body {
   text-align: center;
 }
-.item-body button {
+.item-body button,
+.remove-from-cart {
   width: 90%;
   border: none;
   outline: none;

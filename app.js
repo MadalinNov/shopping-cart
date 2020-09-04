@@ -4,6 +4,7 @@ const closeCart = document.querySelector(".close-cart");
 const sideCart = document.querySelector(".side-cart");
 const addToCart = document.querySelectorAll(".add-to-cart");
 const itemsList = document.querySelector(".side-cart-items");
+let total = 0;
 //Event Listeners
 //////
 //cart slide in / out
@@ -28,11 +29,12 @@ addToCart.forEach(function (button) {
     const item = buttonParent.parentElement;
     const sideBarItem = item.cloneNode(true);
     newListItem.appendChild(sideBarItem);
-    console.log(itemsList);
     //Remove items from cart (remove li from ul) && remove cart styling if cart is empty
     const sideBarButton = sideBarItem.querySelectorAll("button");
     sideBarButton.forEach(function (barButton) {
       barButton.textContent = "Remove";
+      barButton.classList.remove("add-to-cart");
+      barButton.classList.add("remove-from-cart");
       sideCart.querySelector("h1").textContent = "Your Items";
       barButton.addEventListener("click", function () {
         const deleteItem = barButton.parentNode.parentNode;
@@ -41,6 +43,7 @@ addToCart.forEach(function (button) {
           cart.classList.remove("cart-item-in");
           sideCart.querySelector("h1").textContent = "Your cart it empty";
         }
+        totalPrice(barButton);
       });
     });
     //total price update
@@ -58,7 +61,11 @@ function removeClass() {
 function totalPrice(input) {
   const price = input.previousSibling.previousElementSibling.innerHTML.slice(1);
   let priceNumber = parseFloat(price);
-  const cartPrice = document.querySelector("h2");
-  let cartTotalPrice = priceNumber;
-  let previousPrice = 0;
+  if (input.classList.contains("add-to-cart")) {
+    let addedItemsValue = parseFloat((total += priceNumber)).toFixed(2);
+    document.querySelector("h2").textContent = "$ " + addedItemsValue;
+  } else if (input.classList.contains("remove-from-cart")) {
+    let substractedItemsValue = parseFloat((total -= priceNumber)).toFixed(2);
+    document.querySelector("h2").textContent = "$ " + substractedItemsValue;
+  }
 }

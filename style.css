@@ -27,6 +27,9 @@ header {
   padding: 0 10px;
   color: lightgray;
 }
+button {
+  cursor: pointer;
+}
 /*Cart*/
 header .cart,
 .side-cart button {
@@ -45,6 +48,18 @@ header button:hover,
 header button:active {
   transform: scale(0.95);
 }
+header button p {
+  color: white;
+  bottom: 0;
+  right: 0;
+  font-size: 10px;
+  background-color: lightpink;
+  border-radius: 50%;
+  width: 10px;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
 .cart-icon-active {
   transform: scale(1.5);
 }
@@ -53,18 +68,23 @@ header .cart-item-in {
 }
 .side-cart {
   position: absolute;
-  width: 40%;
+  width: 20%;
   height: 100%;
-  background-color: green;
+  background-color: #1b262c;
   right: 0;
   top: 0;
   transition: all 0.3s ease;
   transform: translate(1000px);
+  display: hidden;
   z-index: 1000;
+  box-shadow: 0 10px 15px 20px rgba(0, 0, 0, 0.2);
 }
 .cart-active {
+  transition: all 0.3s ease;
   transform: translate(0);
+  display: block;
 }
+/*******************************************/
 .side-cart h1 {
   pointer-events: none;
   text-align: center;
@@ -80,23 +100,28 @@ header .cart-item-in {
   position: absolute;
   top: 90%;
   left: 50%;
+  transform: translate(-50%, -90%);
 }
 /*sidebar items*/
+
 .side-cart-items .item {
-  width: 60%;
+  width: 90%;
   height: 150px;
   display: flex;
 }
 .side-cart-items .item-head {
   height: 100%;
   width: 50%;
+  background-color: gray;
 }
 .side-cart-items .item-body {
   height: 100%;
   width: 50%;
-  background-color: red;
 }
-
+.side-cart-items .item-body button {
+  font-size: 1rem;
+  color: black;
+}
 /*Items*/
 .items-container {
   width: 80%;
@@ -116,18 +141,85 @@ header .cart-item-in {
   width: 200px;
   height: 250px;
   background-color: white;
+  box-shadow: -15px 20px 15px 15px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+.item:hover {
+  box-shadow: -5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
 }
 .item-head {
   width: 100%;
   height: 50%;
   background-color: gray;
+  cursor: pointer;
 }
 .item-body {
-  text-align: center;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item-body button {
+  margin-top: 30px;
 }
 .item-body button,
 .remove-from-cart {
   width: 90%;
   border: none;
   outline: none;
+  box-shadow: -2px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+.item-body button:active,
+.remove-from-cart:active {
+  transform: scale(0.95);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+/**************************/
+.head1 {
+  background: url(images/laptop.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.2s ease;
+}
+.head1:hover {
+  background: url(images/laptopHover.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.head2 {
+  background: url(images/phone.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.2s ease;
+}
+.head2:hover {
+  background: url(images/phoneHover.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.head3 {
+  background: url(images/car.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.2s ease;
+}
+.head3:hover {
+  background: url(images/carHover.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.head4 {
+  background: url(images/wallet.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.2s ease;
+}
+.head4:hover {
+  background: url(images/walletHover.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
